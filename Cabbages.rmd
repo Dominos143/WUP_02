@@ -35,9 +35,34 @@ veggy <- cabbages
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+# Load the ggplot2 library if it's not already loaded
+# install.packages("ggplot2")
+library(ggplot2)
+
+# Create a notched boxplot with "lightblue" fill for boxes and red outliers
+ggplot(veggy, aes(x = Cult, y = VitC)) +
+  geom_boxplot(notch = TRUE, outlier.colour = "red", fill = "lightblue") +
+  labs(x = "Cultivar", y = "Vitamin C Content") +
+  ggtitle("Notched Boxplot of Vitamin C Content by Cultivar")
+
+```
+
+
+
+
+
+
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+
+```{r}
+favstats(VitC~Cult, data=veggy)
+```
+The data shows that Q3 of C39 is smaller than the Q1 of C52 indicating that they are indeed disjoint.
+
+
 
 ## Inferential Results
 
